@@ -95,7 +95,7 @@ $.getScript(
       jQuery('#sendToDiscord').remove();
       jQuery('.ra-own-home-troops-count').append(`
         <button id="sendToDiscord" class="btn-twf">
-          <img src="https://i.imgur.com/8n7jRL9.png" alt="TWF">
+          <img src="https://i.imgur.com/sJM14FI.png" alt="Olympus">
           Partilhar defesa disponível no ticket
         </button>
       `);
