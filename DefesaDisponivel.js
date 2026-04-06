@@ -5,13 +5,13 @@ var scriptConfig = {
     prefix:    'ownHomeTroopsCount',
     name:      'Own Home Troops Count',
     version:   'v1',
-    author:    'Doritooz - discord: imRevo',
+    author:    'Doritooz',
     authorUrl: 'https://tribalwars.com.pt/',
     helpLink:  'https://tribalwars.com.pt/'
   },
   translations: {
     pt_PT: {
-      'Own Home Troops Count': 'Contagem de Tropa em Casa',
+      'Own Home Troops Count': 'Contagem de Tropa em Casa - discord: imRevo',
       'Redirecting...':        'Redirecionando...',
       'There was an error!':   'Ocorreu um erro inesperado!'
     }
