@@ -1,5 +1,5 @@
 /*
- * Script Name: Defesa Disponivel
+ * Script Name: Defesa Disponivel - discord: imRevo
  * Version: v1.0
  * Author: Doritooz 
  * Based on: Villages Troops Counter by NunoF-
