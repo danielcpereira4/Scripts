@@ -5,7 +5,7 @@ var scriptConfig = {
     prefix:    'ownHomeTroopsCount',
     name:      'Own Home Troops Count',
     version:   'v1',
-    author:    'Doritooz',
+    author:    'Doritooz - discord: imRevo',
     authorUrl: 'https://tribalwars.com.pt/',
     helpLink:  'https://tribalwars.com.pt/'
   },
