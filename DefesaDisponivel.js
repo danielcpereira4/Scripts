@@ -1,7 +1,7 @@
 /*
- * Script Name: Defesa Disponivel - discord: imRevo
- * Version: v1.0
- * Author: Doritooz 
+ * Script Name: Defesa Disponivel
+ * Version: v2.0
+ * Author: Doritooz / Olympus
  * Based on: Villages Troops Counter by NunoF-
  */
 
@@ -324,6 +324,7 @@ class DefesaDisponivel {
 
         fields.push(
             { name: '<:Batedor:1490679522943701002> **Batedores**',                         value: '' + totalTroops.spy,           inline: true  },
+            { name: '<:CavalariaLeve:1498619514315870318> **Cavalaria Leve**',              value: '' + totalTroops.light,         inline: true  },
             { name: '<:CavalariaPesada:1490679597837320362> **Cavalaria Pesada**',          value: '' + totalTroops.heavy,         inline: true  },
             { name: '<:Catapulta:1490679560830976061> **Catapultas**',                      value: '' + totalTroops.catapult,      inline: true  }
         );
@@ -332,10 +333,29 @@ class DefesaDisponivel {
             fields.push({ name: '<:Paladino:1490679690871177247> **Paladinos**',            value: '' + (totalTroops.knight || 0), inline: true });
         }
 
-        // Se for mundo com buscas, adiciona linha de em casa vs em busca
+        // Se for mundo com buscas, mostra divisão em casa vs em busca por unidade
         var extraContent = '';
         if (this.isScavengingWorld) {
-            extraContent = '\n**Em casa:** ' + troopsObj.villagesTroops.spear + ' lanças | **Em busca:** ' + troopsObj.scavengingTroops.spear + ' lanças';
+            var defUnits = [
+                { key: 'spear',   label: 'Lanceiros'        },
+                { key: 'sword',   label: 'Espadachins'      },
+                { key: 'archer',  label: 'Arqueiros',  show: hasArcher },
+                { key: 'light',   label: 'Cavalaria Leve'   },
+                { key: 'heavy',   label: 'Cavalaria Pesada' }
+            ];
+
+            var emCasa = [];
+            var emBusca = [];
+            defUnits.forEach(function (u) {
+                if (u.show === false) return;
+                var home = troopsObj.villagesTroops[u.key]   || 0;
+                var sca  = troopsObj.scavengingTroops[u.key] || 0;
+                emCasa.push(home + ' ' + u.label);
+                emBusca.push(sca  + ' ' + u.label);
+            });
+
+            extraContent = '\n**Em casa:** ' + emCasa.join(' | ') +
+                           '\n**Em busca:** ' + emBusca.join(' | ');
         }
 
         var payload = {
