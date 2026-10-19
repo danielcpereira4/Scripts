@@ -321,21 +321,22 @@ class DefesaDisponivel {
             return $page.find('#paged_view_content, #content_value').length ? support : null;
         }
 
-        // Que unidade está em cada coluna, lida do cabeçalho da tabela
-        var columnUnits = [];
-        $table.find('tr').first().children('th, td').each(function (i, th) {
-            var unit = $(th).find('[data-unit]').attr('data-unit');
-            if (!unit) {
-                var src = $(th).find('img').attr('src') || '';
-                var m = src.match(/unit_([a-z]+)\.(png|webp|gif)/);
-                unit = m ? m[1] : null;
-            }
-            columnUnits[i] = unit;
+        // Que unidade está em cada coluna, lida da linha de cabeçalho que tem as imagens das unidades.
+        // (A 1.ª linha da tabela é a de "selecionar todos"; antes das unidades há "Aldeia" e "distância".)
+        var unitOfCell = function (cell) {
+            var unit = $(cell).find('[data-unit]').attr('data-unit');
+            if (unit) return unit;
+            var m = ($(cell).find('img').attr('src') || '').match(/unit_([a-z]+)/);
+            return m ? m[1] : null;
+        };
+        var columnUnits = null;
+        $table.find('tr').each(function (i, tr) {
+            // toArray().map (e não $.map) para manter as colunas sem unidade como null
+            var cols = $(tr).children('th, td').toArray().map(unitOfCell);
+            if (cols.filter(Boolean).length >= 2) { columnUnits = cols; return false; }
         });
-        if (columnUnits.filter(Boolean).length === 0) {
-            // Plano B: mesma ordem de game_data.units, a começar na 2.ª coluna
-            columnUnits = [null].concat(game_data.units);
-        }
+        // Sem cabeçalho reconhecível não adivinhamos colunas: conta como falha
+        if (!columnUnits) return null;
 
         var addTo = function (target, unit, count) {
             if (!(unit in target.totalUnits)) return;
