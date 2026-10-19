@@ -539,13 +539,12 @@ class DefesaDisponivel {
     border:1px solid #b59e4c; border-radius:6px;
     color:#383020; font-weight:bold; font-size:14px;
     cursor:pointer; transition:transform .2s,box-shadow .2s;">
-    <img src="${DefesaDisponivel.LOGO_URL}" alt="" style="max-width:28px;max-height:28px;vertical-align:middle;margin-right:8px;">
     Partilhar defesa disponível no ticket
   </button>
   <br>
   <div id="dd_brand">
     <img src="${DefesaDisponivel.LOGO_URL}" alt="Logótipo ${DefesaDisponivel.BRAND_NAME}">
-    <span>Defesa Disponível ${DefesaDisponivel.VERSION} por <strong>${DefesaDisponivel.BRAND_NAME}</strong> — dúvidas, sugestões ou mais scripts?</span>
+    <span title="Defesa Disponível ${DefesaDisponivel.VERSION}">Defesa por <strong>${DefesaDisponivel.BRAND_NAME}</strong> - Scripts, Pontos Premium, dúvidas.</span>
     <a href="${DefesaDisponivel.DISCORD_URL}" target="_blank" rel="noopener" aria-label="Entrar no Discord ${DefesaDisponivel.BRAND_NAME} (abre num novo separador)">💬 Junta-te ao Discord ${DefesaDisponivel.BRAND_NAME}</a>
   </div>
 </div>
