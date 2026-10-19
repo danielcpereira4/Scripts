@@ -24,7 +24,7 @@ class DefesaDisponivel {
     // Marca: para trocar o logótipo basta mudar este endereço
     static BRAND_NAME    = 'imRevo';
     static DISCORD_URL   = 'https://discord.gg/tQcnVaAbfy';
-    static LOGO_URL      = 'https://i.imgur.com/sJM14FI.png';
+    static LOGO_URL      = 'https://danielcpereira4.github.io/Scripts/imrevo-logo-128.png';
 
     // Só usado se não for possível ler a população do mundo (get_unit_info)
     static DEFAULT_POP = {
@@ -561,7 +561,7 @@ class DefesaDisponivel {
   #dd_support_details .dd_units { margin-left:16px; font-size:11px; font-style:italic; }
   #dd_support_details .dd_village { margin-left:16px; }
   #dd_brand { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; font-size:11px; padding-top:6px; border-top:1px solid #c1a264; }
-  #dd_brand img { max-width:24px; max-height:24px; }
+  #dd_brand img { width:40px; height:40px; border-radius:6px; }
   #dd_brand a { padding:3px 8px; border-radius:4px; background:#5865f2; color:#fff; font-weight:bold; text-decoration:none; }
   #dd_brand a:hover { background:#4752c4; }
   #dd_brand a:focus-visible { outline:3px solid #603000; outline-offset:2px; }
